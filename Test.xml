@@ -1,0 +1,14 @@
+<xml version="1.0" encoding="UTF-8">
+<Room name="Start Room" description="XML test room 1">
+	<Enemy race="Octopus" name="Ty" health="100" attack="10" defense="5" agility="3" luck="15"/>
+    <Weapon name="Scimitar" attack="10" block="5"/>
+    <Key name="Steel Key"/>
+    <Armor name="Plate Shirt" defense="4" type="Shirt"/>
+    <Chest name="Steel Chest" lockState="true" key="Steel Key"/>
+    <Key name="Black Key"/>
+</Room>
+<Room name="test2" description="XML test room 2">
+    <Enemy race="Monster" name="Courtney" health="100" attack="10" defense="5" agility="3" luck="15"/>
+</Room>
+<Door name="Black Door" room1="Start Room" room2="test2" key="Black Key" lockState="true"/>
+</xml>

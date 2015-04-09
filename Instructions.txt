@@ -1,0 +1,109 @@
+ProjectBACK is a program written by Kenny Roffo.
+
+The program is written to run a text-based game in which the player traverses rooms, finding treasure chests, doors, weapons, armors, keys and enemies.
+
+Each distribution will come with only one such game. However, the program to run the game is written to be general.
+The actual world in which the game takes place is independent of the programming.
+The program covers all of the functionality, but the world in which the game takes place is constructed externally.
+The world comes from an XML file, a text file that uses very specific syntax.
+Due to this setup, an infinite number of worlds can be made and played using these rules all using this one program.
+
+***********************************
+  *								*
+    *      INSTRUCTIONS		  *
+  *								*
+***********************************
+
+************
+* GAMEPLAY *
+************
+
+The program contains several commands. Here is a list of commands with their descriptions.
+
+	Help  	-- Displays this help message again.
+	Quit  	-- Ends the game (Progress will not be saved). [Alt. Command - Exit]
+	Room  	-- See all Characters, Chests, and Doors in the current room. [Alt. Command - Look]
+	Bag   	-- Check the Weapons, Armors, and Keys in your personal Satchel. [Alt. Command - Satchel]
+	Enter 	-- Move your character through a door to a neighboring room. [Alt. Command - Open]
+	Status	-- Check the Health, ATK, DEF, Strength, Agility, Luck and win count of your character. [Alt. Command - Stats]
+	Peek  	-- Peek through a door to see what's in a neighboring room.
+	Unlock	-- Unlock a chest or door if you have the right key.
+	Search	-- Search and take Items from a chest or fallen character. [Alt. Command - Loot]
+	Equip 	-- Equip a Weapon or Armor from your personal satchel.
+	Enemy	-- Check the Health, Strength and Weapon of an enemy without actually battling.
+	Fight 	-- Choose a character which you will then fight to the death (Unless you flee). [Alt. Commands - Battle, Attack]
+	
+	
+If you have the correct key to a locked chest or door, interacting with it will use the key to unlock it. (Enter, Peek, Search, etc.)
+	
+These commands are not case-sensitive, so PEEK, peek, and PeEk all will activate the command Peek.
+There is one exception to this, which you will be reminded of when playing by the phrase "(Case-Sensitive)".
+When entering the names of specific items (Weapons, armors or keys) or enemies, the names ARE case-sensitive.
+Keeping this case-sensitive allows the world creator to include more challenges that are aimed at confusing the user,
+such as the red, blue and green room challenge towards the beginning of the game, using keys, rather than names.
+
+WINNING:
+	To win the game the player must make his/her way to the Heaven Room.
+	Upon entry through the door to the Heaven Room, the game will end in victory.
+
+**********
+* BATTLE *
+**********
+
+To enter a battle, use the "Fight" command. If you enter "Room" or "Look", you will see characters in a room.
+The format looks like this:
+
+	Human: Kenny
+	
+This means that this character is a Human, and his/her name is Kenny. So to battle this character,
+when asked for a name after entering "Fight", you should enter "Kenny", rather than "Human: Kenny".
+The name you should enter is always to the right of the colon.
+
+During battle, some commands are unavailable, but new commands become of use. Here is the list of commands available during battle:
+
+	Rules	-- Displays these rules for battling.
+	Attack	-- Attack with your current weapon. Player and CPU attacks are simultaneous.
+	Flee  	-- Escape the battle by entering a door. Player will take a hit by the enemy before fleeing.
+	Dodge 	-- A successful dodge might cause the opponent to stumble. Success based on agility.
+	Equip 	-- Allows the player to switch weapons, but at the expense of a turn of attack.
+	Block 	-- Player prepares for an incoming attack, decreasing damage taken, possibly causing opponent to stumble.
+	Room  	-- Prints the contents of the current room. (Does not use a turn)
+	Status	-- Check the status of the enemy and yourself. (Does not use a turn)
+	Bag   	-- Displays the Weapons, Armors, and Keys in your personal Satchel. (Does not use a turn)
+		
+Characters have Health, ATK, DEF, Block, Agility and Luck.
+All of these come into play during battle. Below are more detailed descriptions of how each command executes.
+
+Attack:
+	A random number is generated from 1 to the character's ATK. The other characters DEF is then subtracted from this.
+	At this point, if the damamge is less than 1, then it is reset to 1, so if a character attacks, it will never do
+	less than 1 damage. Finally, before damage is inflicted, a random number is generated from 1-100.
+	If this number is less than the character's luck, then the hit becomes critical, dealing double damage.
+	
+Flee:
+	If the player is to enter a door that does not exist, then the game will let the player know, and no turn will pass.
+	If the player tries to enter a locked door, and does not have the key, the player will not leave the room, but will take a hit.
+	
+Dodge:
+	If the enemy is on the ground, then the program will inform the player, and no turn will pass.
+	If the enemy is not on the ground, a random number is generated from 1-100. If this number is
+	less than the player's agility, then the player will successfully dodge, and the enemy will fall to the ground.
+	No damage will be taken if the dodge is successful, otherwise, damage will be taken as normal.
+	
+Eqiup:
+	Allows the player to equip a weapon at the expense of 1 turn. (Equipping a weapon, unequips an already equpped weapon)
+	Should the player not have the weapon entered, perhaps due to the fact that the name is case-sensitive, no turn will pass.
+
+Block:
+	A character may only block if a weapon is equipped. The success of a block is determined by generating a random number from 1-100.
+	If this number is less than the ratio of player strength to enemy strength (x100) then the block is successful.
+	No matter what, blocking will cut the damage taken. An unsuccessful block will cut the damage by the player's block.
+	A successful block will cut the damage taken by twice the player's block, and also knock the enemy down.
+	
+Status: Displays the Health of the enemy, and the stats of the player.
+
+Bag and Room commands are the same as when out of battle, and do not use a turn of battle.
+
+Every turn, unless the enemy is on the ground, the enemy will attack. If the enemy is on the ground, it will get up that turn.
+
+Once you win 5 battles, you will level up and all of your stats will increase (except for health).

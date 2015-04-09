@@ -1,0 +1,96 @@
+<xml version="1.0" encoding="UTF-8">
+	
+<Room name="Start Room" description="A safe room with a chest and a wooden door.">
+	<Chest name="Wooden Chest" lockState="false">
+		<Key name="Brown Key"/>
+		<Weapon name="Butter Knife" attack="1" block="1"/>
+		<Armor name="Cloth Gloves" defense="0" type="Gloves"/>
+	</Chest>
+		
+</Room>
+
+<Room name="Rat Room" description="Rat droppings... everywhere...">
+	<Enemy race="Rat" name="Juice" health="10" attack="3" defense="2" agility="3" luck="15">
+   		<Key name="Wooden Key"/>
+	</Enemy>
+	<Enemy race="Big Rat" name="Clive" health="20" attack="10" defense="4" agility="2" luck="25">
+   		<Key name="Plain Key"/>
+	</Enemy>
+    <Chest name="Wooden Chest" lockState="true" key="Wooden Key">
+		<Armor name="Leather Pants" defense="2" type="Pants"/>
+    	<Key name="Wooden Key"/>
+	</Chest>
+</Room>
+
+<Room name="Practice Room" description="Practice Dummies line the walls.">
+	<Chest name="Empty Chest" lockState="false"/>
+</Room>
+
+<Room name="Blank Room" description="A white room. White floor, white walls, white cieling. White.">
+	<Enemy race="White Mouse" name="Bob" health="1" attack="1" defense="1" agility="1" luck="100"/>
+</Room>
+
+<Room name="Blue Room" description="The room is lit by a blue light.">
+	<Enemy race="Giant Mosquito" name="Ray" health="10" attack="2" defense="1" agility="10" luck="15">
+   		<Key name="Blue Key"/>
+	</Enemy>
+	<Enemy race="Giant Mosquito" name="Lucky" health="8" attack="3" defense="2" agility="11" luck="65">
+		<Weapon name="Pointy Stick" attack="3" block="2"/>
+	</Enemy>
+	<Enemy race="Giant Mosquito" name="Roy" health="8" attack="2" defense="1" agility="10" luck="15">
+		<Weapon name="Not Pointy Stick" attack="1" block="2"/>
+	</Enemy>
+    <Chest name="Yellow Chest" lockState="true" key="Blue Key">
+    	<Key name="Red Key"/>
+		<Key name="Bleu Key"/>
+	</Chest>
+</Room>
+
+<Room name="Yellow Room" description="The room is lit by a yellow light.">
+	<Enemy race="Slimy Goop" name="Gerald" health="11" attack="1" defense="10" agility="1" luck="15">
+   		<Key name="Yellow Key"/>
+	</Enemy>
+	<Enemy race="Slimy Goop" name="Garry" health="10" attack="1" defense="10" agility="1" luck="15">
+		<Armor name="Leather Gloves" defense="1" type="Gloves"/>
+	</Enemy>
+	<Enemy race="Slimy Goop" name="George" health="10" attack="1" defense="10" agility="1" luck="15">
+		<Key name="Wooden Key"/>
+	</Enemy>
+    <Chest name="Red Chest" lockState="true" key="Yellow Key">
+		<Armor name="Leather Cuirass" defense="2" type="Shirt"/>
+    	<Key name="Blew Key"/>
+	</Chest>
+</Room>
+
+<Room name="Red Room" description="The room is lit by a red light.">
+    <Chest name="Blue Chest" lockState="true" key="Bleu Key">
+    	<Key name="Iron Key"/>
+	</Chest>
+</Room>
+
+<Room name="Chrome Room" description="A shiny silver room.">
+	<Enemy race="Kra-Ken-E" name="Boss" health="30" attack="12" defense="6" agility="8" luck="25">
+   		<Key name="Gold Key"/>
+	</Enemy>
+</Room>
+
+<Room name="Gold Room" description="A fabulous golden room.">
+	<Chest name="Gold Chest" lockState="false">
+		<Key name="Heaven Key"/>
+	</Chest>
+</Room>
+
+<Room name="Heaven Room" description="Heaven!">
+</Room>
+
+<Door name="Brown Door" room1="Start Room" room2="Rat Room" key="Brown Key" lockState="true"/>
+<Door name="Wooden Door" room1="Rat Room" room2="Practice Room" key="Wooden Key" lockState="true"/>
+<Door name="Plain Door" room1="Rat Room" room2="Blank Room" key="Plain Key" lockState="true"/>
+<Door name="Red Door" room1="Practice Room" room2="Blue Room" lockState="false"/>
+<Door name="Yellow Door" room1="Practice Room" room2="Red Room" key="Blew Key" lockState="true"/>
+<Door name="Blue Door" room1="Practice Room" room2="Yellow Room" key="Red Key" lockState="true"/>
+<Door name="Iron Door" room1="Blank Room" room2="Chrome Room" key="Iron Key" lockState="true"/>
+<Door name="Gold Door" room1="Chrome Room" room2="Gold Room" key="Gold Key" lockState="true"/>
+<Door name="Heaven's Door" room1="Gold Room" room2="Heaven Room" key="Heaven Key" lockState="true"/>
+
+</xml>
